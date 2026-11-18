@@ -1,6 +1,6 @@
 {
   "name": "@blockconsult/ai-roi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Compare recovered capacity, cash savings and automation costs across three scenarios.",
   "author": "Block Consult GmbH",
