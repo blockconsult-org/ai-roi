@@ -1,0 +1,11 @@
+{
+  "slug": "ai-roi",
+  "name": "AI Automation ROI Simulator",
+  "nameDe": "ROI-Simulator f\u00fcr KI-Automatisierung",
+  "description": "Compare recovered capacity, cash savings and automation costs across three scenarios.",
+  "version": "1.0.0",
+  "appId": "org.blockconsult.airoi",
+  "publicPath": "/tools/ai-roi",
+  "repository": "https://github.com/blockconsult-org/ai-roi",
+  "sourceCommit": "1acdf7a290ef4d54e0b882c9d1b8c2bde79c8f9e"
+}
