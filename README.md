@@ -1,14 +1,42 @@
-<p align="left"><img src="public/icon.png" width="64" alt="Block Consult" /></p>
+<a href="https://www.blockconsult.org">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/blockconsult-logo.png">
+    <img src="public/blockconsult-logo-light.png" alt="Block Consult" width="280">
+  </picture>
+</a>
 
 # AI Automation ROI Simulator
 
-Compare recovered capacity, cash savings and automation costs across three scenarios. A focused, offline desktop workspace from [Block Consult](https://www.blockconsult.org), available in English and German.
+Build a business case for one recurring workflow. Enter workload, handling time, labor cost and automation assumptions, then compare recovered capacity, cash benefit, incremental costs and payback across conservative, expected and optimistic scenarios.
+
+An offline desktop tool from [Block Consult](https://www.blockconsult.org), available in English and German, with light and dark themes.
 
 [![Latest release](https://img.shields.io/github/v/release/blockconsult-org/ai-roi)](https://github.com/blockconsult-org/ai-roi/releases/latest) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) · [Platform builds](https://github.com/blockconsult-org/ai-roi/actions/workflows/release.yml)
 
 **[Download for macOS or Windows](https://github.com/blockconsult-org/ai-roi/releases/latest)** · [Use in your browser](https://www.blockconsult.org/tools/ai-roi) · [Report an issue](https://github.com/blockconsult-org/ai-roi/issues)
 
-![AI Automation ROI Simulator workspace](docs/screenshot.png)
+![AI Automation ROI Simulator in dark mode, showing workflow inputs, scenario controls and business-case results](docs/screenshot.png)
+
+## What you can do
+
+- Start from an invoice-processing, enquiry-triage or recurring-reporting example and replace its assumptions.
+- Model adoption, eligible tasks, residual handling and review time separately for all three scenarios.
+- Include implementation, software, usage and maintenance costs, plus implementation delay and adoption ramp.
+- Keep recovered capacity separate from cash savings. Only the cash-realization share contributes positive labor savings; additional labor counts as a cost.
+- Compare cumulative cash, break-even, ROI and monthly detail, then export JSON, a PNG summary or PDF.
+
+## Get started
+
+1. Choose a **Fictional starting point** and currency. Currency changes the unit label; it does not convert amounts.
+2. In **Inputs**, enter your workflow volume, current handling time, labor cost and analysis horizon. Adjust automation, costs and timing for each scenario.
+3. Open **Results** to compare the business cases and inspect the selected scenario. Review the cash-realization assumption before relying on savings.
+4. Choose **Save draft** or **Files & actions → Export JSON** to keep your assumptions and results.
+
+## Screenshots
+
+![Invoice-processing example in light mode, showing recovered capacity, cash benefit, net benefit, ROI and cumulative cash scenarios](docs/screenshots/example.png)
+
+Results from the fictional invoice-processing example. The chart compares the three scenarios over the analysis horizon; the selected scenario supplies the headline figures. Both screenshots show the actual desktop app with fictional example data or its starting workspace.
 
 ## Download and install
 
@@ -20,22 +48,23 @@ Compare recovered capacity, cash savings and automation costs across three scena
 
 Release notes state the signing and notarization status of each download. Unsigned Windows releases may show a publisher warning. macOS requires macOS 13 or later. Check `SHA256SUMS.txt` against the downloaded file using `shasum -a 256` (macOS) or `Get-FileHash -Algorithm SHA256` (PowerShell). Download only from this repository's Releases page.
 
-## A private workspace
+## Your data
 
-- Calculations and editing work without an internet connection, account or API key.
-- English/German UI, light/dark themes, keyboard controls and resizable layouts.
-- Existing JSON models and browser share links remain compatible. Use **Open share link** to inspect a shared scenario locally.
-- Exports use a native file-save dialog. **File → Save report as PDF** writes a local PDF.
-- Drafts stay in this app's local profile; JSON exports are portable backups. Draft behavior follows the original tool (see the tool's save controls).
-- No analytics, telemetry, cloud synchronization or automatic uploads. Website and evidence links open in your default browser. Unknown evidence destinations require confirmation.
+Calculations and editing run locally without an internet connection, account or API key. The app has no analytics, telemetry, cloud synchronization or automatic uploads.
 
-Share links are readable, encoded snapshots, **not encrypted**. Review the sharing preview and optional inclusion of authored text before copying one. Closing an unsaved workspace can lose edits; save or export first. Opening a share link replaces the current workspace.
+Use **Save draft** for a local draft or **Files & actions → Export JSON** for a portable copy. Saving and loading are explicit; edits are not saved automatically. Shared snapshots open read-only, and **Make a copy** creates an editable version without changing the saved draft until you save.
 
-## Develop
+JSON models and browser share links are compatible with the Block Consult browser tool. **Open share link** lets you inspect a shared scenario in the desktop app. Save or export before opening a share link; navigation replaces the open workspace. Share links contain readable, encoded snapshots and are not encrypted. Review the sharing preview and the option to include authored text before creating one.
+
+Exports use native file-save dialogs. **File → Save report as PDF** saves a local PDF. Website and evidence links open in your default browser; unknown evidence destinations require confirmation.
+
+## Run from source
 
 Install Node.js 24 or newer, then:
 
 ```sh
+git clone https://github.com/blockconsult-org/ai-roi.git
+cd ai-roi
 npm ci
 npm run build
 npm start
@@ -59,14 +88,14 @@ npm run dist -- --win --x64       # on Windows
 | `tests/` | Calculation regressions and real desktop integration checks |
 | `.github/workflows/release.yml` | Tests and platform builds; draft releases for version tags |
 
-The original pure model code is preserved. The desktop adaptation changes navigation, share-link origins, local resources and native export handling. Source baseline: `1acdf7a290ef4d54e0b882c9d1b8c2bde79c8f9e`. No website server, portal, client data, credentials or provider integration is included.
-
 ## Release and maintenance
 
-See [release instructions](docs/RELEASING.md), [security policy](SECURITY.md) and [contribution guide](CONTRIBUTING.md). Releases are manual downloads; the app does not silently update. Keep the Electron runtime current when maintaining a fork.
+See the [release instructions](docs/RELEASING.md). Releases are manual downloads; the app does not silently update. Keep the Electron runtime current when maintaining a fork.
 
-These tools support planning and discussion. Results depend on the supplied assumptions and the documented model limitations; they are not a prediction or professional advice.
+The three scenarios are editable assumptions, not probabilities or confidence intervals. Recovered hours are capacity, not automatically cash savings. Results depend on the chosen inputs and do not predict realized returns.
 
-## License
+## Contributing and license
 
-[MIT](LICENSE) · Copyright © 2026 Block Consult GmbH. Names and logos remain Block Consult trademarks.
+Read the [contribution guide](CONTRIBUTING.md) before opening a pull request. Report vulnerabilities privately through the [security policy](SECURITY.md).
+
+[MIT](LICENSE) · Copyright © 2026 Block Consult GmbH. The license covers the code; it does not grant rights to use Block Consult’s name or logo as an endorsement.
